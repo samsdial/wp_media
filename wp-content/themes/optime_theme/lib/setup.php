@@ -108,3 +108,43 @@ function assets() {
 
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+
+if ( function_exists('acf_add_options_page') ) {
+    $page = acf_add_options_page(array(
+        'page_title'    => __('Configuration General WebSite', 'site'),
+        'menu_title'    => __('Home WebSite', 'site'),
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'manage_options',
+        'redirect'  => false
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' => __('Configuracion Slider (Principal)', 'site'),
+        'menu_title' => __('Configuracion Slider (Principal)', 'site'),
+        'menu_slug' => 'theme-slider-main-configuration',
+        'capability' => 'manage_options',
+        'parent_slug' => 'theme-general-settings',
+        'position' => false,
+        'icon_url' => false,
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' => __('Configuracion Intro', 'site'),
+        'menu_title' => __('Configuracion Intro', 'site'),
+        'menu_slug' => 'theme-service-configuration',
+        'capability' => 'manage_options',
+        'parent_slug' => 'theme-general-settings',
+        'position' => false,
+        'icon_url' => false,
+    ));
+    acf_add_options_sub_page(array(
+        'page_title' => __('Configuracion Nosotros', 'site'),
+        'menu_title' => __('Configuracion Nosotros', 'site'),
+        'menu_slug' => 'theme-service',
+        'capability' => 'manage_options',
+        'parent_slug' => 'theme-general-settings',
+        'position' => false,
+        'icon_url' => false,
+    ));
+}

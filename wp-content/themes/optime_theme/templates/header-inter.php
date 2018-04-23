@@ -1,10 +1,34 @@
-<nav class="navbar navbar-expand-md fixed-top">
+<nav class="navbar navbar-expand-md">
     <div class="container">
         <a href="<?= esc_url(home_url('/')); ?>" class="navbar-brand text-black"><?php bloginfo('name'); ?></a>
+        <button class="navbar-toggler text-black" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <?php
+            if (has_nav_menu('primary_navigation')) :
+            wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'navbar-nav ml-auto']);
+            endif;
+            ?>
 
-
-
-
+            <!--<ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link " href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>-->
+        </div>
     </div>
 </nav>
 
